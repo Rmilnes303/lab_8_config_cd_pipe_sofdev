@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI-pipeline
 
 on:
   push:
@@ -38,4 +38,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/calculator-app:v1
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/calculator-app:v1
+            ${{ secrets.DOCKERHUB_USERNAME }}/calculator-app:${{ github.sha }}
